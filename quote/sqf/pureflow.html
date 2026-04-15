@@ -1,1 +1,425 @@
-proposal
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pure Flow Bottling & Packaging — SQF Proposal | Jennifer</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:#111209; --gold:#b8922a; --green:#2d5a3d;
+      --light:#f9f7f3; --border:#e4dfd6; --mid:#555;
+    }
+    body { font-family: Georgia, 'Times New Roman', serif; background: var(--light); color: var(--ink); font-size: 15px; line-height: 1.6; }
+
+    /* SITE NAV */
+    .site-nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:58px; background:var(--ink); border-bottom:2px solid var(--gold); }
+    .nav-back { display:flex; align-items:center; gap:8px; font-family:'DM Sans',sans-serif; font-size:11.5px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.2s; }
+    .nav-back:hover { color:var(--gold); }
+    .nav-back svg { width:15px; height:15px; }
+    .nav-center { font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:600; color:#fff; letter-spacing:0.04em; }
+    .nav-center span { color:var(--gold); }
+    .nav-badge { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,146,42,0.4); padding:5px 12px; }
+
+    /* PROPOSAL WRAPPER */
+    .proposal { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+
+    /* COVER */
+    .cover { background:var(--ink); color:#fff; padding:48px 32px 40px; margin-bottom:0; }
+    .cover-eyebrow { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
+    .cover-top { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px; }
+    .cover-title { font-size:30px; font-weight:400; letter-spacing:-0.02em; line-height:1.2; margin-bottom:6px; }
+    .cover-title span { color:var(--gold); }
+    .cover-subtitle { color:#aaa; font-size:13px; font-style:italic; margin-top:10px; }
+    .cover-by { text-align:right; }
+    .cover-by-label { font-family:'DM Sans',sans-serif; font-size:11px; color:#666; margin-bottom:4px; }
+    .cover-by-name { font-size:18px; font-weight:400; color:#fff; }
+    .cover-by-role { font-family:'DM Sans',sans-serif; font-size:12px; color:var(--gold); margin-top:2px; }
+    .cred-bar { margin-top:28px; padding-top:20px; border-top:1px solid #2a2a2a; display:flex; gap:16px; flex-wrap:wrap; }
+    .cred-item { flex:1 1 180px; }
+    .cred-name { font-family:'DM Sans',sans-serif; font-size:12px; font-weight:600; color:#e8e8e8; }
+    .cred-sub { font-family:'DM Sans',sans-serif; font-size:11px; color:#666; margin-top:2px; }
+
+    /* CONTENT AREA */
+    .content { padding:36px 32px 0; }
+
+    /* SECTION HEADER */
+    .sec-hdr { display:flex; align-items:center; gap:12px; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+    .sec-hdr-dot { width:6px; height:6px; background:var(--gold); border-radius:50%; flex-shrink:0; }
+    .sec-hdr h3 { font-family:'DM Sans',sans-serif; margin:0; font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#444; }
+
+    /* WHY */
+    .why-box { background:#fff; border:1px solid var(--border); border-left:4px solid var(--gold); border-radius:3px; padding:20px 22px; margin-bottom:36px; }
+    .why-box p { font-size:14px; line-height:1.85; color:#333; margin:0; }
+    .why-box p+p { margin-top:14px; }
+
+    /* PHASES */
+    .phases { margin-bottom:36px; }
+    .phase-hint { font-family:'DM Sans',sans-serif; font-size:13px; color:#777; font-style:italic; margin-bottom:18px; }
+    .phase-list { display:flex; flex-direction:column; gap:10px; }
+    .phase-card { background:#fff; border:1px solid var(--border); border-radius:3px; overflow:hidden; cursor:pointer; transition:border-color 0.2s, box-shadow 0.2s; }
+    .phase-card.open { border-color:var(--gold); box-shadow:0 2px 16px rgba(184,146,42,0.1); }
+    .phase-header { padding:16px 18px; display:flex; align-items:center; gap:16px; }
+    .phase-num { width:36px; height:36px; border-radius:50%; background:#f0ede6; color:#888; display:flex; align-items:center; justify-content:center; font-family:'DM Sans',sans-serif; font-size:12px; font-weight:700; flex-shrink:0; transition:all 0.2s; }
+    .phase-card.open .phase-num { background:var(--gold); color:#fff; }
+    .phase-info { flex:1; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .phase-name { font-weight:600; font-size:15px; }
+    .phase-label { font-family:'DM Sans',sans-serif; font-size:12px; color:#888; font-style:italic; }
+    .phase-meta { display:flex; align-items:center; gap:10px; margin-left:auto; }
+    .tag { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:3px 9px; border-radius:2px; white-space:nowrap; }
+    .tag-milestone { background:#f0f0f8; color:#3a3a8f; }
+    .tag-required  { background:#eef4ee; color:var(--green); }
+    .tag-recommend { background:#fdf6e8; color:#7a5800; }
+    .tag-audience  { background:#f4f4f4; color:#555; }
+    .tag-phase-ref { background:#f0f0f8; color:#3a3a8f; }
+    .phase-fee { font-family:'DM Sans',sans-serif; font-size:14px; font-weight:700; color:var(--green); }
+    .phase-toggle { color:#bbb; font-size:20px; line-height:1; margin-left:4px; }
+
+    /* PHASE BODY */
+    .phase-body { border-top:1px solid #f0ede6; display:none; }
+    .phase-card.open .phase-body { display:block; }
+    .phase-summary { padding:16px 18px 0 70px; font-size:13px; line-height:1.75; color:#444; font-style:italic; }
+    .panels { display:grid; grid-template-columns:1fr 1fr 1fr; margin:16px 18px 18px; border:1px solid var(--border); border-radius:3px; overflow:hidden; }
+    .panel { }
+    .panel+.panel { border-left:1px solid var(--border); }
+    .panel-hdr { padding:9px 14px; display:flex; align-items:center; gap:8px; }
+    .panel-hdr-act  { background:var(--ink); }
+    .panel-hdr-need { background:#2a3a2a; }
+    .panel-hdr-del  { background:#2a2a1a; }
+    .panel-icon { font-size:14px; }
+    .panel-title { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; }
+    .panel-hdr-act  .panel-title { color:#ccc; }
+    .panel-hdr-need .panel-title { color:#aac4aa; }
+    .panel-hdr-del  .panel-title { color:#c9b870; }
+    .panel-items { padding:12px 14px; display:flex; flex-direction:column; gap:8px; }
+    .panel-item { display:flex; gap:8px; align-items:flex-start; }
+    .panel-bullet { font-size:10px; margin-top:3px; flex-shrink:0; line-height:1; }
+    .panel-bullet-act  { color:var(--gold); }
+    .panel-bullet-need { color:var(--green); }
+    .panel-bullet-del  { color:var(--gold); }
+    .panel-item span { font-family:'DM Sans',sans-serif; font-size:12px; color:#333; line-height:1.55; }
+    .panel-item-del span { font-weight:500; }
+
+    /* TRAINING */
+    .training { margin-bottom:36px; }
+    .training-intro { background:#fff; border:1px solid var(--border); border-left:4px solid var(--green); border-radius:3px; padding:14px 18px; margin-bottom:16px; font-family:'DM Sans',sans-serif; font-size:13px; line-height:1.75; color:#444; }
+    .training-list { display:flex; flex-direction:column; gap:8px; }
+    .training-card { background:#fff; border:1px solid var(--border); border-radius:3px; padding:13px 16px; }
+    .training-card.req  { border-left:3px solid var(--green); }
+    .training-card.rec  { border-left:3px solid #c8b98a; }
+    .training-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+    .training-left { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .training-title { font-size:14px; font-weight:600; color:var(--ink); }
+    .training-tags { display:flex; gap:8px; flex-shrink:0; flex-wrap:wrap; }
+    .training-desc { font-family:'DM Sans',sans-serif; font-size:12px; color:#666; line-height:1.65; margin:0; }
+    .training-note { margin-top:12px; background:var(--light); border:1px solid var(--border); border-radius:3px; padding:11px 14px; font-family:'DM Sans',sans-serif; font-size:12px; color:#777; line-height:1.6; }
+    .training-note strong { color:var(--mid); }
+
+    /* PRICING */
+    .pricing { margin-bottom:36px; }
+    .pricing-list { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
+    .price-row { background:#fff; border:1px solid var(--border); border-radius:3px; padding:14px 16px; }
+    .price-row.highlight { background:#fffbef; border-color:var(--gold); box-shadow:0 2px 12px rgba(184,146,42,0.12); }
+    .price-top { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+    .price-left { display:flex; align-items:center; gap:10px; }
+    .tag-retainer  { background:#eef2ee; color:var(--green); }
+    .tag-milestone { background:#f0f0f8; color:#3a3a8f; }
+    .tag-onsite    { background:#fdf4e7; color:#8a5a00; }
+    .tag-success   { background:#fef6e4; color:#7a4a00; }
+    .price-label { font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; color:var(--ink); }
+    .price-label.bold { font-weight:700; }
+    .price-amount { font-family:'DM Sans',sans-serif; font-size:16px; font-weight:700; white-space:nowrap; }
+    .price-amount.green { color:var(--green); }
+    .price-amount.gold  { color:var(--gold); }
+    .price-note { font-family:'DM Sans',sans-serif; font-size:12px; color:#777; line-height:1.6; margin:0; }
+    .estimate { background:var(--ink); color:#fff; border-radius:3px; padding:20px 22px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    .estimate-label { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#666; margin-bottom:6px; }
+    .estimate-sub   { font-family:'DM Sans',sans-serif; font-size:13px; color:#aaa; }
+    .estimate-amount { font-size:28px; font-weight:400; color:var(--gold); letter-spacing:-0.02em; text-align:right; }
+    .estimate-hint  { font-family:'DM Sans',sans-serif; font-size:11px; color:#555; text-align:right; }
+
+    /* TERMS */
+    .terms { margin-bottom:36px; }
+    .terms-list { display:flex; flex-direction:column; gap:8px; }
+    .term-row { background:#fff; border:1px solid var(--border); border-radius:3px; padding:11px 14px; display:flex; gap:12px; align-items:flex-start; }
+    .term-dot { color:var(--gold); font-size:16px; line-height:20px; flex-shrink:0; }
+    .term-text { font-family:'DM Sans',sans-serif; font-size:13px; color:#555; line-height:1.6; }
+
+    /* DOC FOOTER */
+    .doc-footer { text-align:center; padding-top:24px; border-top:1px solid var(--border); }
+    .doc-footer-name { font-size:13px; color:#888; font-style:italic; margin-bottom:8px; }
+    .doc-footer-meta { font-family:'DM Sans',sans-serif; font-size:11px; color:#bbb; letter-spacing:0.12em; text-transform:uppercase; }
+
+    @media(max-width:680px){
+      .site-nav{padding:0 16px;} .nav-center{display:none;}
+      .cover{padding:32px 20px 28px;} .content{padding:24px 20px 0;}
+      .panels{grid-template-columns:1fr;} .panel+.panel{border-left:none; border-top:1px solid var(--border);}
+      .phase-summary{padding-left:18px;}
+      .training-top{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+    Back
+  </a>
+  <div class="nav-center">Jennifer <span>·</span> Food Safety</div>
+  <div class="nav-badge">Client Proposal</div>
+</nav>
+
+<div class="proposal">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-eyebrow">SQF Consulting Proposal · 2025</div>
+    <div class="cover-top">
+      <div>
+        <div class="cover-title">Pure Flow Bottling<br><span>&amp; Packaging</span></div>
+        <div class="cover-subtitle">SQF Certification — External Consulting Engagement</div>
+      </div>
+      <div class="cover-by">
+        <div class="cover-by-label">Prepared by</div>
+        <div class="cover-by-name">Jennifer</div>
+        <div class="cover-by-role">Food Safety &amp; SQF Consultant</div>
+      </div>
+    </div>
+    <div class="cred-bar">
+      <div class="cred-item"><div class="cred-name">Former Compliance Manager</div><div class="cred-sub">Farmer Focus — USDA-regulated</div></div>
+      <div class="cred-item"><div class="cred-name">BRC Internal Auditor</div><div class="cred-sub">Certified</div></div>
+      <div class="cred-item"><div class="cred-name">HACCP Certified</div><div class="cred-sub">Plan development &amp; implementation</div></div>
+      <div class="cred-item"><div class="cred-name">Multiple Successful GFSI Audits</div><div class="cred-sub">Preparation &amp; accompaniment</div></div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- WHY THIS WORKS -->
+    <div class="sec-hdr"><div class="sec-hdr-dot"></div><h3>Why This Works</h3></div>
+    <div class="why-box">
+      <p>Pure Flow already has an internal compliance team — this engagement isn't about replacing that. Jennifer brings the external audit expertise, GFSI scheme knowledge, and SQF preparation experience that your internal team hasn't needed to build yet. She has sat on both sides of the audit table: as compliance manager at a USDA-regulated facility and guiding teams through BRC certification. That perspective is what gets companies certified the first time.</p>
+      <p>This is a hybrid engagement — most work is delivered remotely, with on-site visits at key phases and full on-site presence during the certification audit itself.</p>
+    </div>
+
+    <!-- ENGAGEMENT PHASES -->
+    <div class="phases">
+      <div class="sec-hdr"><div class="sec-hdr-dot"></div><h3>Engagement Phases</h3></div>
+      <p class="phase-hint">Click a phase to see details.</p>
+      <div class="phase-list" id="phaseList"></div>
+    </div>
+
+    <!-- STAFF TRAINING -->
+    <div class="training">
+      <div class="sec-hdr"><div class="sec-hdr-dot"></div><h3>Staff Training Program</h3></div>
+      <div class="training-intro">SQF Code requires that all personnel receive documented food safety training appropriate to their role — and that training records are available for auditor review. Jennifer designs, delivers, and documents all required training sessions as part of this engagement. Sessions are conducted on-site during scheduled visits, with supporting materials and signed attendance records provided to your internal team for the audit file.</div>
+      <div class="training-list" id="trainingList"></div>
+      <div class="training-note"><strong>Training deliverables include:</strong> session facilitation (on-site), signed attendance records, training topic summaries, and a completed training matrix for the audit file — ready for review by the certifying body auditor.</div>
+    </div>
+
+    <!-- INVESTMENT -->
+    <div class="pricing">
+      <div class="sec-hdr"><div class="sec-hdr-dot"></div><h3>Investment</h3></div>
+      <div class="pricing-list" id="pricingList"></div>
+      <div class="estimate">
+        <div>
+          <div class="estimate-label">Estimated Total Engagement</div>
+          <div class="estimate-sub">7–9 month engagement · 1–2 audit days · milestone success fee included</div>
+        </div>
+        <div>
+          <div class="estimate-amount" id="estimateAmount"></div>
+          <div class="estimate-hint">All-in estimate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TERMS -->
+    <div class="terms">
+      <div class="sec-hdr"><div class="sec-hdr-dot"></div><h3>Terms</h3></div>
+      <div class="terms-list" id="termsList"></div>
+    </div>
+
+    <!-- DOC FOOTER -->
+    <div class="doc-footer">
+      <div class="doc-footer-name">Prepared for Pure Flow Bottling and Packaging</div>
+      <div class="doc-footer-meta">SQF Code Edition 9 · HACCP Compliant · GFSI Aligned</div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /proposal -->
+
+<script>
+const GOLD  = '#b8922a';
+const GREEN = '#2d5a3d';
+
+// ── DATA ──────────────────────────────────────────────────────────────────
+const phases = [
+  { num:'01', name:'Foundation', label:'Assessment & Gap Analysis',
+    summary:'A confidential review of Pure Flow\'s current food safety practices, documentation, and operational controls against SQF Code requirements — producing a prioritized gap report and a clear certification roadmap.',
+    milestone:true, fee:'$2,200',
+    activities:['Kick-off meeting with management and internal compliance team to align on scope and timeline','On-site facility walkthrough and operational observation of bottling and packaging processes','Review of all existing documentation, records, and food safety procedures','Stakeholder interviews with key operational and compliance personnel','Evaluation of current food safety culture and practice against SQF Code Edition 9','Gap scoring across all applicable SQF system elements','Prioritization of action areas by certification risk level'],
+    clientNeeds:['Facility access for on-site walkthrough (scheduled visit)','Any existing SOPs, policies, or food safety records — even informal ones','Organizational chart and key personnel list with roles','Basic description of bottling and packaging process flow','Current supplier list and any existing supplier documentation','Most recent water quality or product testing results, if available'],
+    deliverables:['Confidential Gap Analysis Report','Prioritized Risk and Action Register','Certification Roadmap with phase-by-phase timeline to audit']
+  },
+  { num:'02', name:'Program Build', label:'Food Safety System Development',
+    summary:'Jennifer reviews Pure Flow\'s existing food safety programs, policies, and HACCP documentation against SQF Code requirements — identifying gaps, recommending improvements, and updating materials where necessary to meet certification standards.',
+    milestone:true, fee:'$3,500',
+    activities:['Review existing process flow diagrams and verify accuracy against current operations','Evaluate existing hazard analysis for completeness — biological, chemical, physical, and radiological hazards','Review CCP identification, critical limits, monitoring procedures, corrective actions, and verification steps','Assess all existing prerequisite programs — sanitation, pest control, water quality, allergen management, supplier approval, and more','Mark up and update policies and procedures where gaps or non-conformances are identified','Review document control system and record-keeping structure; recommend and apply improvements','Review or develop training materials for required staff sessions','Deliver on-site training: SQF Awareness, GMP, Personal Hygiene, HACCP Awareness, and Sanitation Procedures','Complete and file signed training records and attendance matrix for the audit file'],
+    clientNeeds:['All existing HACCP documentation, policies, SOPs, and prerequisite programs','Product specifications, packaging materials list, and label information','Water source and treatment process details','Supplier documentation (certificates, specifications) for key raw material inputs','Pest control provider contact and any current service records','Sanitation chemical Safety Data Sheets (SDS) for all chemicals in use','Equipment calibration and maintenance logs or current status information','Staff roster with roles for training scheduling and attendance tracking'],
+    deliverables:['Reviewed and Updated HACCP Plan — with marked changes and recommendations','Reviewed and Updated Prerequisite Programs — audit-ready versions','Revised Policy and Procedure Set — updated where gaps were identified','Training Materials Package (all sessions)','Completed Staff Training Records and Signed Attendance Matrix','Document Control Register — reviewed and updated as needed']
+  },
+  { num:'03', name:'Readiness', label:'Internal Audit & Pre-Audit Assessment',
+    summary:'A structured internal audit of Pure Flow\'s food safety system, followed by corrective action tracking, remaining staff training sessions, and a formal readiness sign-off confirming the program is prepared for the certifying body.',
+    milestone:true, fee:'$2,000',
+    activities:['Schedule and conduct a full internal audit across all SQF system elements','Document audit findings, observations, and non-conformances with supporting evidence','Issue Non-Conformance Reports (NCRs) with defined corrective action requirements','Guide internal team in developing and implementing corrective actions','Conduct follow-up verification to confirm corrective action closure','Deliver Food Defense & Security Awareness training session (all staff)','Deliver Document Control and Internal Audit Awareness training to compliance team','Conduct final mock audit walkthrough simulating the certifying body process','Issue formal readiness sign-off confirming system is audit-ready'],
+    clientNeeds:['Active monitoring records and logs generated since program launch (Phase 02)','Evidence of corrective actions taken on any Phase 02 findings','Updated supplier approval files','Completed training records from Phase 02 sessions','Current pest control, calibration, and equipment maintenance records','Management availability for internal audit opening and closing'],
+    deliverables:['Internal Audit Report with full findings and NCR log','Corrective Action and Verification Tracker','Food Defense, Document Control, and Internal Audit training records','Pre-Audit Readiness Report','Formal Readiness Sign-Off Memo']
+  },
+  { num:'04', name:'Certification', label:'On-Site Audit Accompaniment',
+    summary:'Jennifer serves as Pure Flow\'s on-site compliance representative for the full certification audit — managing the certifying body relationship, coordinating all documentation in real time, handling findings, and driving post-audit corrective actions through to certificate issuance.',
+    milestone:false, fee:null,
+    activities:['Coordinate audit scheduling with certifying body on Pure Flow\'s behalf','Prepare and submit all required pre-audit documentation packages','Lead auditor opening meeting and confirm audit scope and schedule','Accompany certifying body auditor through full facility and process review','Coordinate real-time retrieval of records and documentation as requested by auditor','Provide context and clarification on food safety system elements during audit','Manage closing meeting and receive preliminary findings professionally','Develop post-audit Corrective Action and Preventive Action (CAPA) report','Submit CAPA to certifying body within required timeframe','Monitor certification status through to formal certificate issuance'],
+    clientNeeds:['Management availability for opening and closing meetings on audit day','Operational staff available for auditor observation and role-specific questions','All current monitoring records organized and accessible on audit day','Any outstanding corrective actions closed and documented prior to audit','Facility in normal operating condition during the audit'],
+    deliverables:['Pre-Audit Documentation Package (submitted to certifying body)','Post-Audit CAPA Report','Audit Findings Summary for internal records','Certificate Receipt Confirmation and filing']
+  }
+];
+
+const trainings = [
+  { title:'SQF Awareness & Food Safety Culture', audience:'All Staff', timing:'Phase 02', required:true, desc:'Foundational training ensuring every employee understands the company\'s SQF commitment, their personal role in food safety, and how the certification program affects daily operations.' },
+  { title:'Good Manufacturing Practices (GMP)', audience:'Production & Packaging Staff', timing:'Phase 02', required:true, desc:'Covers facility hygiene standards, proper handling of packaging materials, contamination prevention, and the specific GMP controls applicable to bottling and packaging environments.' },
+  { title:'Personal Hygiene & Health Reporting', audience:'All Staff', timing:'Phase 02', required:true, desc:'Covers handwashing protocols, PPE requirements, illness and injury reporting obligations, and behavioral expectations in food-contact areas. Required under SQF Code for all personnel.' },
+  { title:'HACCP Principles & Awareness', audience:'Key Personnel & Supervisors', timing:'Phase 02', required:true, desc:'Introduces the seven HACCP principles and how they apply to Pure Flow\'s specific process flow. Participants learn to identify critical control points and understand their monitoring responsibilities.' },
+  { title:'Sanitation & Cleaning Procedures', audience:'Sanitation & Production Staff', timing:'Phase 02', required:true, desc:'Covers master sanitation schedules, chemical handling, equipment cleaning verification, and documentation requirements. Aligned to the prerequisite programs reviewed in Phase 02.' },
+  { title:'Food Defense & Security Awareness', audience:'All Staff', timing:'Phase 03', required:true, desc:'Covers the company\'s food defense plan, site security procedures, threat identification, and employee reporting responsibilities. Required element under SQF Code for all certified facilities.' },
+  { title:'Document Control & Record-Keeping', audience:'Internal Compliance Team', timing:'Phase 03', required:false, desc:'Ensures your internal compliance team is fully capable of maintaining SQF documentation, managing version control, and completing audit-ready records after Jennifer\'s engagement concludes.' },
+  { title:'Internal Audit Awareness', audience:'Internal Compliance Team', timing:'Phase 03', required:false, desc:'Prepares your internal compliance team to conduct and support ongoing internal audits after certification. Covers audit planning, observation documentation, and corrective action tracking.' }
+];
+
+const pricingRows = [
+  { type:'Retainer',    typeClass:'tag-retainer',  label:'Monthly Consulting Retainer',        amount:'$1,600 / mo',  amtClass:'green', highlight:false, note:'Covers ongoing advisory access, check-ins, document reviews, and coordination with your internal team throughout the engagement.' },
+  { type:'Milestone',   typeClass:'tag-milestone', label:'Phase 01 — Foundation Milestone',    amount:'$2,200',       amtClass:'green', highlight:false, note:'Due upon delivery of the Gap Report and Certification Roadmap.' },
+  { type:'Milestone',   typeClass:'tag-milestone', label:'Phase 02 — Program Build Milestone', amount:'$3,500',       amtClass:'green', highlight:false, note:'Due upon delivery of the reviewed HACCP Plan, Prerequisite Programs, and updated Policy Set.' },
+  { type:'Milestone',   typeClass:'tag-milestone', label:'Phase 03 — Readiness Milestone',     amount:'$2,000',       amtClass:'green', highlight:false, note:'Due upon delivery of Internal Audit Report and Readiness Sign-Off.' },
+  { type:'On-Site',     typeClass:'tag-onsite',    label:'Audit Accompaniment (Phase 04)',      amount:'$1,800 / day', amtClass:'green', highlight:false, note:'Billed per day on-site. Most first-time SQF audits for facilities this size run 1–2 days.' },
+  { type:'Success Fee', typeClass:'tag-success',   label:'Certification Success Fee',           amount:'Up to $2,500', amtClass:'gold',  highlight:true,  note:'Paid upon certification. Tiered: $1,000 (Satisfactory / ≥70%), $1,750 (Good / ≥85%), $2,500 (Excellent / ≥95%). Aligns incentives entirely with your outcome.' }
+];
+
+const terms = [
+  'Retainer begins upon signed agreement; billed on the 1st of each month.',
+  'Milestone fees are invoiced upon delivery and acceptance of the specified deliverable. Payment due within 7 days.',
+  'On-site days (site visits, audit accompaniment) are invoiced separately at the day rate. Travel expenses billed at cost.',
+  'Success fee is invoiced upon receipt of SQF certification and is tiered to audit score as outlined above.',
+  'Either party may terminate with 30 days written notice. Milestones earned prior to termination are non-refundable.',
+  'All work product remains confidential to Pure Flow. Jennifer does not share proprietary documentation.',
+  'Proposal valid for 30 days from date of issue.'
+];
+
+// ── RENDER PHASES ─────────────────────────────────────────────────────────
+const phaseList = document.getElementById('phaseList');
+phases.forEach((ph, i) => {
+  const card = document.createElement('div');
+  card.className = 'phase-card';
+  card.innerHTML = `
+    <div class="phase-header">
+      <div class="phase-num">${ph.num}</div>
+      <div class="phase-info">
+        <span class="phase-name">${ph.name}</span>
+        <span class="phase-label">${ph.label}</span>
+      </div>
+      <div class="phase-meta">
+        ${ph.milestone ? '<span class="tag tag-milestone">Milestone</span>' : ''}
+        ${ph.fee ? `<span class="phase-fee">${ph.fee}</span>` : ''}
+        <span class="phase-toggle">+</span>
+      </div>
+    </div>
+    <div class="phase-body">
+      <div class="phase-summary">${ph.summary}</div>
+      <div class="panels">
+        <div class="panel">
+          <div class="panel-hdr panel-hdr-act"><span class="panel-icon">⚙</span><span class="panel-title">Jennifer's Activities</span></div>
+          <div class="panel-items">${ph.activities.map(a=>`<div class="panel-item"><span class="panel-bullet panel-bullet-act">▸</span><span>${a}</span></div>`).join('')}</div>
+        </div>
+        <div class="panel">
+          <div class="panel-hdr panel-hdr-need"><span class="panel-icon">📋</span><span class="panel-title">Required from Pure Flow</span></div>
+          <div class="panel-items">${ph.clientNeeds.map(n=>`<div class="panel-item"><span class="panel-bullet panel-bullet-need">▸</span><span>${n}</span></div>`).join('')}</div>
+        </div>
+        <div class="panel">
+          <div class="panel-hdr panel-hdr-del"><span class="panel-icon">📄</span><span class="panel-title">Deliverables</span></div>
+          <div class="panel-items">${ph.deliverables.map(d=>`<div class="panel-item panel-item-del"><span class="panel-bullet panel-bullet-del">◆</span><span>${d}</span></div>`).join('')}</div>
+        </div>
+      </div>
+    </div>`;
+  card.querySelector('.phase-header').addEventListener('click', () => {
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.phase-card').forEach(c => {
+      c.classList.remove('open');
+      c.querySelector('.phase-toggle').textContent = '+';
+    });
+    if (!isOpen) {
+      card.classList.add('open');
+      card.querySelector('.phase-toggle').textContent = '−';
+    }
+  });
+  phaseList.appendChild(card);
+});
+
+// ── RENDER TRAINING ───────────────────────────────────────────────────────
+const trainingList = document.getElementById('trainingList');
+trainings.forEach(t => {
+  const div = document.createElement('div');
+  div.className = 'training-card ' + (t.required ? 'req' : 'rec');
+  div.innerHTML = `
+    <div class="training-top">
+      <div class="training-left">
+        <span class="training-title">${t.title}</span>
+        <span class="tag ${t.required ? 'tag-required' : 'tag-recommend'}">${t.required ? 'SQF Required' : 'Recommended'}</span>
+      </div>
+      <div class="training-tags">
+        <span class="tag tag-audience">${t.audience}</span>
+        <span class="tag tag-phase-ref">${t.timing}</span>
+      </div>
+    </div>
+    <p class="training-desc">${t.desc}</p>`;
+  trainingList.appendChild(div);
+});
+
+// ── RENDER PRICING ────────────────────────────────────────────────────────
+const pricingList = document.getElementById('pricingList');
+pricingRows.forEach(row => {
+  const div = document.createElement('div');
+  div.className = 'price-row' + (row.highlight ? ' highlight' : '');
+  div.innerHTML = `
+    <div class="price-top">
+      <div class="price-left">
+        <span class="tag ${row.typeClass}">${row.type}</span>
+        <span class="price-label${row.highlight ? ' bold' : ''}">${row.label}</span>
+      </div>
+      <span class="price-amount ${row.amtClass}">${row.amount}</span>
+    </div>
+    <p class="price-note">${row.note}</p>`;
+  pricingList.appendChild(div);
+});
+
+// Estimate
+const low  = 1600*7 + 2200 + 3500 + 2000 + 1800*1 + 1000;
+const high = 1600*9 + 2200 + 3500 + 2000 + 1800*2 + 2500;
+document.getElementById('estimateAmount').textContent =
+  '$' + low.toLocaleString() + ' – $' + high.toLocaleString();
+
+// ── RENDER TERMS ──────────────────────────────────────────────────────────
+const termsList = document.getElementById('termsList');
+terms.forEach(t => {
+  const div = document.createElement('div');
+  div.className = 'term-row';
+  div.innerHTML = `<span class="term-dot">·</span><span class="term-text">${t}</span>`;
+  termsList.appendChild(div);
+});
+</script>
+</body>
+</html>
